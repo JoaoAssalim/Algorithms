@@ -1,6 +1,6 @@
-A = int(input('Inicio da lista: '))
-B = int(input('Fim da lista: '))
-element = int(input('Numero que deseja: '))
+A = int(input('Start: '))
+B = int(input('End: '))
+element = int(input('Number to Search: '))
 binarios = list(range(A,B))
 
 right = len(binarios)
@@ -11,7 +11,7 @@ while True:
     middle = (right + left) // 2
     if len(binarios) > 0:
         if element == binarios[idx]:
-            print(f'Elemento Encontrado na posição {middle}')
+            print(f'Element found on position {middle}')
             break
         elif element >= binarios[idx]:
             binarios = binarios[idx:]
@@ -20,5 +20,5 @@ while True:
             binarios = binarios[:idx]
             right = middle
     else:
-        print('Elemento não encontrado')
+        print('Element not found!')
         break
