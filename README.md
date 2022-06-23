@@ -1,5 +1,5 @@
-# Busca Binaria
+# Binary Search
 
-Este é um codigo com intuito de realizar pesquisar com mais velocidade para execução do codigo.<br>
-A busca binaria é uma exelente ferramenta para realizar pesquisas em listas com um curto periodo de tempo,<br>
-assim sendo uma completa ajudante para codigos que necessitam de velocidade de execução.
+This is a code with the intention of performing search with more speed to execute the code.<br>
+The binary search is an excellent tool to perform searches in lists with a short period of time,<br>
+thus being a complete helper for codes that need execution speed.
