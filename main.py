@@ -13,7 +13,7 @@ while True:
         if element == binarios[idx]:
             print(f'Element found on position {middle}')
             break
-        elif element >= binarios[idx]:
+        elif element > binarios[idx]:
             binarios = binarios[idx:]
             left = middle
         else:
