@@ -1,9 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int buscaBinaria(int buscador){
-    vector<int> bins = {0,1,4,6,7,8,10,12,15,16}; // Digit the list we need search
-    int start = 0,end = 11, meio = (end-start)/2;
+int buscaBinaria(int buscador, int comp){
+    vector<int> bins;
+    for(int i = 0; i <= comp; i++){
+        bins.push_back(i);
+    }
+    int start = 0,end = comp, meio = (end-start)/2;
     
     while(1){
         if(end-start <=2){ //if element not found
@@ -24,10 +27,12 @@ int buscaBinaria(int buscador){
 }
 
 int main(){
-    int result = buscaBinaria(10); //Value you wants find
+    int B, C;
+    cin >> B >> C; // Number to find, //vector length
+    int result = buscaBinaria(B, C);
     if(result == -1){
-        cout << "Element not found" << endl;
+        cout << "Elemento não encontrado" << endl;
     }else{
-        cout << "Element found at index: " << result << endl;   
+        cout << "Elemento encontrado no index: " << result << endl;   
     }
 }
