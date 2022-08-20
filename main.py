@@ -1,7 +1,6 @@
-A = int(input('Start: '))
 B = int(input('End: '))
 element = int(input('Number to Search: '))
-binarios = list(range(A,B))
+binarios = list(range(0,B))
 
 right = len(binarios)
 left = 0
