@@ -1,27 +1,28 @@
-def floodFill(img, row, col, p, path):
+#https://www.beecrowd.com.br/judge/pt/problems/view/1905
+
+def floodFill(img, row, col, p):
     start = img[row][col]
     queue = [(row, col)]
     visited = set()
-    came_from = {}
 
     while len(queue) > 0:
-        r, c = queue.pop(0)
-        visited.add((r, c))
-        img[r][c] = p
+        row, col = queue.pop(0)
+        visited.add((row, col))
+        vis[row][col] = True
+        img[row][col] = p
 
-        for dr, dc in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
-            nr, nc = r + dr, c + dc
-            if 0 <= nr < len(img) and 0 <= nc < len(img[0]) and img[nr][nc] == start and (nr, nc) not in visited:
-                queue.append((nr, nc))
-                came_from[(nr, nc)] = (r, c)
+        for row, col in neighbors(img, row, col, start):
+            if (row, col) not in visited:
+                queue.append((row, col))
+    
+    return img
 
-    if graph[0][0] == graph[4][4]:
-        current = (4, 4)
-        while current != (0, 0):
-            path.insert(0, current)
-            current = came_from[current]
+def neighbors(img, row, col, start):
+    indices = [(row-1, col), (row+1, col), (row, col-1), (row, col+1)]
+    return [(row, col) for row, col in indices if isValid(img, row, col) and img[row][col] == start]
 
-    return img, path
+def isValid(img, row, col):
+    return row >= 0 and col >= 0 and row < len(img) and col < len(img[0])
 
 for i in range(int(input())):
     graph = []
@@ -32,18 +33,14 @@ for i in range(int(input())):
         if len(l) > 0:
             graph.append(l)
             i += 1
-
+        
     vis = [[False for i in range(5)] for j in range(5)]
-    path = []
-
+    
     if graph[0][0] != 1:
-        graph, path = floodFill(graph, 0, 0, 3, path)
-
+        floodFill(graph, 0, 0, 3)
+        
         if graph[0][0] == graph[4][4]:
             print("COPS")
-            for r, c in path:
-                print(f"({r}, {c}) -> ", end="")
-            print(f"({0}, {0})")
         else:
             print("ROBBERS")
     else:
