@@ -2,7 +2,14 @@
 By João Assalim
 
 Breadth First Search:
+    BFS work starting add the first node into a queue and
+    add it into visited array, removing it from queue and
+    add it all children into queue and repeating it again
 
+    It goes for 'layer'
+
+Time Complexity:
+    O(n)
 
 """
 
@@ -21,12 +28,12 @@ def bfs(x):
     print(marked)
 
 
-n, m = list(map(int, input().split()))
-
+n, m = list(map(int, input().split())) # nodes, edges
 graph = [[] for i in range(n)]
 
 for i in range(m):
     a, b = list(map(int, input().split()))
     graph[a].append(b)
+    graph[b].append(a)
 
 bfs(0)
